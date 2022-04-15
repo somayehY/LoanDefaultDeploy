@@ -18,10 +18,8 @@ def predict():
     result = model.predict(df)
 
     return result
+result = predict()
 st.subheader('Prediction')
 
 st.write(result)
 
-
-if __name__ == "__main__":
- app.run(debug=True)
