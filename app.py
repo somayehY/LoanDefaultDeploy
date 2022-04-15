@@ -7,13 +7,6 @@ import streamlit as st
 app = Flask(__name__)
 
 
-@app.route('/')
-def predict(df):
- result = model.predict(df)
-
- return result
-
-
 @app.route('/', methods=['POST'])
 
 def user_input_features():
@@ -28,6 +21,13 @@ def user_input_features():
          'tem': term}
  features = pd.DataFrame(data, columns = ['int_rate', 'loan_amnt', 'fico_score', 'term'], index=[0])
  return features
+
+@app.route('/')
+def predict(df):
+ result = model.predict(df)
+
+ return result
+
 df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
@@ -43,4 +43,4 @@ st.write(prediction)
 
 
 if __name__ == "__main__":
- app.run()
+ app.run(debug=True)
