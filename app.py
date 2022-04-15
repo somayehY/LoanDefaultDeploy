@@ -4,12 +4,10 @@ import pickle
 import streamlit as st
 
 #load model
-model = pickle.load(open('model.pkl','rb'))
 app = Flask(__name__)
 
 
- # routes
-@app.route('/predict')
+@app.route('/')
 def predict(features):
  result = model.predict(features)
 
@@ -28,7 +26,7 @@ def user_input_features():
          'loan_amnt': loan_amount,
          'fico_score': fico_score,
          'tem': term}
- features = pd.DataFrame(data, index=None)
+ features = pd.DataFrame(data, columns = ['int_rate', 'loan_amnt', 'fico_score', 'term'], index=[0])
  return features
 df = user_input_features()
 st.subheader('User Input parameters')
