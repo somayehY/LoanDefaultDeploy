@@ -33,11 +33,13 @@ st.subheader('User Input parameters')
 st.write(df)
 model = pickle.load(open('model.pkl','rb'))
 prediction = model.predict(df)
-prediction_proba = model.predict_proba(df)
+#prediction_proba = model.predict_proba(df)
 
+st.subheader('Prediction')
+st.write(prediction)
 
-
-
+#st.subheader('Default Probability')
+#st.write(prediction_proba)
 
 
 if __name__ == "__main__":
