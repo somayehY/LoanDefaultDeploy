@@ -8,13 +8,13 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def predict(features):
- result = model.predict(features)
+def predict(df):
+ result = model.predict(df)
 
  return result
 
 
-@app.route('/user_input_features', methods=['POST'])
+@app.route('/', methods=['POST'])
 
 def user_input_features():
 
