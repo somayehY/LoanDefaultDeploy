@@ -1,10 +1,11 @@
 import pandas as pd
-from flask import Flask, jsonify, request
+from flask import Flask, render_template
 import pickle
 import streamlit as st
 
 #load model
 app = Flask(__name__)
+
 
 
 @app.route('/', methods=['POST'])
@@ -42,5 +43,5 @@ st.write(prediction)
 #st.write(prediction_proba)
 
 
-if __name__ == "__main__":
+if __name__ == "__app__":
  app.run(debug=True)
