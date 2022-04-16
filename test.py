@@ -30,5 +30,5 @@ st.subheader('Prediction')
 st.write(response)
 
 st.subheader('Probability of default')
-st.write(prob[0])
+st.write(prob[0][0])
 
