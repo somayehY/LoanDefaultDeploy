@@ -22,9 +22,13 @@ def input_data():
 def predict_point(df):
     model = pickle.load(open('model.pkl', 'rb'))
     result = model.predict(df)
-    return result
+    probability = model.predict_proba(df)
+    return result, probability
 df = input_data()
-response = predict_point(df)
+response, prob = predict_point(df)
 st.subheader('Prediction')
 st.write(response)
+
+st.subheader('Probability of default')
+st.write(prob[0])
 
